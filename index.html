@@ -6,110 +6,94 @@
     <title>AI-First Strategy | Social Media Automation & AI Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            // Initialize EmailJS with your public key
-            emailjs.init("g7zLZN4cXS6PNk2JF");
+            // Initialize EmailJS - using the newer method
+            (function(){
+                emailjs.init({
+                    publicKey: "g7zLZN4cXS6PNk2JF",
+                    limitRate: {
+                        // Set rate limiting
+                        throttle: 2000 // 2 seconds between each request
+                    }
+                });
+            })();
 
             document.addEventListener('DOMContentLoaded', function() {
                 // Review Form Handler
-                document.getElementById('reviewForm').addEventListener('submit', function(e) {
+                document.getElementById('reviewForm').addEventListener('submit', async function(e) {
                     e.preventDefault();
                     
-                    // Show loading state
-                    const submitButton = this.querySelector('button[type="submit"]');
-                    const originalButtonText = submitButton.innerHTML;
-                    submitButton.innerHTML = 'Sending...';
-                    submitButton.disabled = true;
+                    try {
+                        // Show loading state
+                        const submitButton = this.querySelector('button[type="submit"]');
+                        const originalButtonText = submitButton.innerHTML;
+                        submitButton.innerHTML = 'Sending...';
+                        submitButton.disabled = true;
 
-                    // Hide any previous messages
-                    document.getElementById('reviewSuccess').classList.add('hidden');
-                    document.getElementById('reviewError').classList.add('hidden');
+                        // Hide any previous messages
+                        document.getElementById('reviewSuccess').classList.add('hidden');
+                        document.getElementById('reviewError').classList.add('hidden');
 
-                    const formData = {
-                        to_email: "ettopapiashvili@gmail.com",
-                        from_name: document.getElementById('review-name').value,
-                        from_email: document.getElementById('review-email').value,
-                        company: document.getElementById('review-company').value,
-                        platforms: Array.from(document.getElementById('review-platforms').selectedOptions).map(option => option.value).join(', '),
-                        account: document.getElementById('review-account').value,
-                        goals: document.getElementById('review-goals').value,
-                        subject: "New Free Strategy Review Request",
-                        message: `New Strategy Review Request:
+                        const formData = {
+                            to_email: "ettopapiashvili@gmail.com",
+                            from_name: document.getElementById('review-name').value,
+                            from_email: document.getElementById('review-email').value,
+                            company: document.getElementById('review-company').value,
+                            platforms: Array.from(document.getElementById('review-platforms').selectedOptions).map(option => option.value).join(', '),
+                            account: document.getElementById('review-account').value,
+                            goals: document.getElementById('review-goals').value
+                        };
 
-Name: ${document.getElementById('review-name').value}
-Email: ${document.getElementById('review-email').value}
-Company: ${document.getElementById('review-company').value}
-Social Media Platforms: ${Array.from(document.getElementById('review-platforms').selectedOptions).map(option => option.value).join(', ')}
-Social Media Account: ${document.getElementById('review-account').value}
-Goals: ${document.getElementById('review-goals').value}
+                        // Log the data being sent (for debugging)
+                        console.log('Attempting to send form data:', formData);
 
-Please review and contact the client within 48 hours.`
-                    };
-
-                    // Log the data being sent (for debugging)
-                    console.log('Attempting to send form data:', formData);
-
-                    emailjs.send("service_iqeaiy7", "template_6e1i2qb", formData)
-                        .then(function(response) {
-                            console.log('SUCCESS!', response);
-                            document.getElementById('reviewSuccess').classList.remove('hidden');
-                            document.getElementById('reviewForm').reset();
-                        })
-                        .catch(function(error) {
-                            console.error('FAILED...', error);
-                            document.getElementById('reviewError').classList.remove('hidden');
-                            document.getElementById('reviewError').textContent = 'Error: ' + (error.text || error.message || 'Failed to send message. Please try again.');
-                        })
-                        .finally(function() {
-                            // Restore button state
-                            submitButton.innerHTML = originalButtonText;
-                            submitButton.disabled = false;
-                        });
+                        const response = await emailjs.send("service_iqeaiy7", "template_6e1i2qb", formData);
+                        console.log('SUCCESS!', response);
+                        document.getElementById('reviewSuccess').classList.remove('hidden');
+                        document.getElementById('reviewForm').reset();
+                    } catch (error) {
+                        console.error('FAILED...', error);
+                        document.getElementById('reviewError').classList.remove('hidden');
+                        document.getElementById('reviewError').textContent = 'Error: ' + (error.text || error.message || 'Failed to send message. Please try again.');
+                    } finally {
+                        // Restore button state
+                        submitButton.innerHTML = originalButtonText;
+                        submitButton.disabled = false;
+                    }
                 });
 
                 // Contact Form Handler
-                document.getElementById('contactForm').addEventListener('submit', function(e) {
+                document.getElementById('contactForm').addEventListener('submit', async function(e) {
                     e.preventDefault();
                     
-                    // Show loading state
-                    const submitButton = this.querySelector('button[type="submit"]');
-                    const originalButtonText = submitButton.innerHTML;
-                    submitButton.innerHTML = 'Sending...';
-                    submitButton.disabled = true;
+                    try {
+                        // Show loading state
+                        const submitButton = this.querySelector('button[type="submit"]');
+                        const originalButtonText = submitButton.innerHTML;
+                        submitButton.innerHTML = 'Sending...';
+                        submitButton.disabled = true;
 
-                    const formData = {
-                        to_email: "ettopapiashvili@gmail.com",
-                        from_name: document.getElementById('name').value,
-                        from_email: document.getElementById('email').value,
-                        message: document.getElementById('message').value,
-                        subject: "New Contact Form Submission",
-                        formatted_message: `New Contact Form Submission:
+                        const formData = {
+                            to_email: "ettopapiashvili@gmail.com",
+                            from_name: document.getElementById('name').value,
+                            from_email: document.getElementById('email').value,
+                            message: document.getElementById('message').value
+                        };
 
-Name: ${document.getElementById('name').value}
-Email: ${document.getElementById('email').value}
-Message:
-${document.getElementById('message').value}
-
-Please respond within 24 hours.`
-                    };
-
-                    emailjs.send("service_iqeaiy7", "template_6e1i2qb", formData)
-                        .then(function(response) {
-                            console.log('SUCCESS!', response);
-                            document.getElementById('formSuccess').classList.remove('hidden');
-                            document.getElementById('contactForm').reset();
-                        })
-                        .catch(function(error) {
-                            console.error('FAILED...', error);
-                            alert('Error: ' + (error.text || error.message || 'Failed to send message. Please try again.'));
-                        })
-                        .finally(function() {
-                            // Restore button state
-                            submitButton.innerHTML = originalButtonText;
-                            submitButton.disabled = false;
-                        });
+                        const response = await emailjs.send("service_iqeaiy7", "template_6e1i2qb", formData);
+                        console.log('SUCCESS!', response);
+                        document.getElementById('formSuccess').classList.remove('hidden');
+                        document.getElementById('contactForm').reset();
+                    } catch (error) {
+                        console.error('FAILED...', error);
+                        alert('Error: ' + (error.text || error.message || 'Failed to send message. Please try again.'));
+                    } finally {
+                        // Restore button state
+                        submitButton.innerHTML = originalButtonText;
+                        submitButton.disabled = false;
+                    }
                 });
             });
         })();

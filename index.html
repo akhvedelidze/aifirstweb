@@ -9,16 +9,10 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            // Initialize EmailJS - using the newer method
-            (function(){
-                emailjs.init({
-                    publicKey: "g7zLZN4cXS6PNk2JF",
-                    limitRate: {
-                        // Set rate limiting
-                        throttle: 2000 // 2 seconds between each request
-                    }
-                });
-            })();
+            // Initialize EmailJS
+            emailjs.init({
+                publicKey: "g7zLZN4cXS6PNk2JF",
+            });
 
             document.addEventListener('DOMContentLoaded', function() {
                 // Review Form Handler
@@ -49,7 +43,7 @@
                         // Log the data being sent (for debugging)
                         console.log('Attempting to send form data:', formData);
 
-                        const response = await emailjs.send("service_iqeaiy7", "template_6e1i2qb", formData);
+                        const response = await emailjs.sendForm('service_iqeaiy7', 'template_6e1i2qb', e.target);
                         console.log('SUCCESS!', response);
                         document.getElementById('reviewSuccess').classList.remove('hidden');
                         document.getElementById('reviewForm').reset();
@@ -75,14 +69,7 @@
                         submitButton.innerHTML = 'Sending...';
                         submitButton.disabled = true;
 
-                        const formData = {
-                            to_email: "ettopapiashvili@gmail.com",
-                            from_name: document.getElementById('name').value,
-                            from_email: document.getElementById('email').value,
-                            message: document.getElementById('message').value
-                        };
-
-                        const response = await emailjs.send("service_iqeaiy7", "template_6e1i2qb", formData);
+                        const response = await emailjs.sendForm('service_iqeaiy7', 'template_6e1i2qb', e.target);
                         console.log('SUCCESS!', response);
                         document.getElementById('formSuccess').classList.remove('hidden');
                         document.getElementById('contactForm').reset();

@@ -9,7 +9,9 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            emailjs.init("g7zLZN4cXS6PNk2JF");
+            emailjs.init({
+                publicKey: 'g7zLZN4cXS6PNk2JF',
+            });
 
             document.addEventListener('DOMContentLoaded', function() {
                 // Review Form Handler

@@ -814,33 +814,41 @@
     document.getElementById('reviewForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
+        // Show loading state
+        document.getElementById('reviewError').classList.add('hidden');
+        
         const formData = {
             name: document.getElementById('review-name').value,
             email: document.getElementById('review-email').value,
             company: document.getElementById('review-company').value,
-            platforms: Array.from(document.getElementById('review-platforms').selectedOptions).map(option => option.value),
+            platforms: Array.from(document.getElementById('review-platforms').selectedOptions).map(option => option.value).join(', '),
             account: document.getElementById('review-account').value,
             goals: document.getElementById('review-goals').value
         };
 
-        emailjs.send("iqeaiy7", "template_6e1i2qb", {
-            to_email: "ettopapiashvili@gmail.com",
+        // Template parameters should match your EmailJS template variables exactly
+        const templateParams = {
             from_name: formData.name,
             from_email: formData.email,
             company: formData.company,
-            platforms: formData.platforms.join(', '),
+            platforms: formData.platforms,
             account: formData.account,
-            goals: formData.goals
-        })
-        .then(function(response) {
-            document.getElementById('reviewSuccess').classList.remove('hidden');
-            document.getElementById('reviewError').classList.add('hidden');
-            document.getElementById('reviewForm').reset();
-        })
-        .catch(function(error) {
-            document.getElementById('reviewError').classList.remove('hidden');
-            document.getElementById('reviewSuccess').classList.add('hidden');
-        });
+            goals: formData.goals,
+            to_email: "ettopapiashvili@gmail.com"
+        };
+
+        emailjs.send("iqeaiy7", "template_6e1i2qb", templateParams)
+            .then(function(response) {
+                console.log("SUCCESS", response);
+                document.getElementById('reviewSuccess').classList.remove('hidden');
+                document.getElementById('reviewError').classList.add('hidden');
+                document.getElementById('reviewForm').reset();
+            })
+            .catch(function(error) {
+                console.log("FAILED", error);
+                document.getElementById('reviewError').classList.remove('hidden');
+                document.getElementById('reviewSuccess').classList.add('hidden');
+            });
     });
 </script>
 

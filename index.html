@@ -818,15 +818,15 @@
     <script src="https://cdn.chatsimple.ai/chat-bot-loader.js" defer></script>
 
     <!-- Microsoft Copilot Studio Chatbot Widget -->
-    <div id="ms-copilot-container" style="position: fixed; left: 20px; bottom: 100px; width: 350px; height: 500px; z-index: 1000; border-radius: 16px; overflow: hidden; box-shadow: 0 15px 30px rgba(79, 70, 229, 0.3); display: none;">
+    <div id="ms-copilot-container" style="position: fixed; left: 20px; bottom: 100px; width: 350px; height: 500px; z-index: 1000; border-radius: 16px; overflow: hidden; box-shadow: 0 15px 30px rgba(79, 70, 229, 0.3); display: none; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
         <div style="position: absolute; top: 0; left: 0; right: 0; height: 45px; background: linear-gradient(135deg, #4F46E5, #8B5CF6); display: flex; align-items: center; justify-content: space-between; padding: 0 15px; z-index: 1001;">
-            <div style="color: white; font-weight: bold; font-family: sans-serif;">AI Assistant</div>
+            <div style="color: white; font-weight: bold;">AI Assistant</div>
             <button id="close-copilot" style="background: rgba(255,255,255,0.2); color: white; border: none; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: all 0.3s ease;">×</button>
         </div>
-        <iframe src="https://copilotstudio.microsoft.com/environments/Default-a6be5ea2-0bb1-4b8c-9def-78a267a5638b/bots/cr129_guideToNetworkPreview/webchat?__version__=2" frameborder="0" style="width: 100%; height: 100%; padding-top: 45px; box-sizing: border-box;"></iframe>
+        <iframe id="copilot-iframe" src="https://copilotstudio.microsoft.com/environments/Default-a6be5ea2-0bb1-4b8c-9def-78a267a5638b/bots/cr129_guideToNetworkPreview/webchat?__version__=2" frameborder="0" style="width: 100%; height: 100%; padding-top: 45px; box-sizing: border-box;"></iframe>
     </div>
     
-    <button id="open-copilot" style="position: fixed; left: 20px; bottom: 20px; background: linear-gradient(135deg, #4F46E5, #8B5CF6); color: white; border: none; width: 60px; height: 60px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4); z-index: 999; transition: all 0.3s ease;">
+    <button id="open-copilot" style="position: fixed; left: 20px; bottom: 20px; background: linear-gradient(135deg, #4F46E5, #8B5CF6); color: white; border: none; width: 60px; height: 60px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4); z-index: 999; transition: all 0.3s ease; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
         <i class="fas fa-robot" style="font-size: 24px;"></i>
     </button>
 
@@ -951,6 +951,27 @@
     document.getElementById('open-copilot').addEventListener('click', function() {
         document.getElementById('ms-copilot-container').style.display = 'block';
         this.style.display = 'none';
+        
+        // Apply font styles to chatbot iframe after it loads
+        setTimeout(function() {
+            try {
+                const iframe = document.getElementById('copilot-iframe');
+                if (iframe && iframe.contentWindow) {
+                    const style = document.createElement('style');
+                    style.textContent = `
+                        body, input, button, textarea, select, div {
+                            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+                        }
+                        button.primary {
+                            background: linear-gradient(135deg, #4F46E5, #8B5CF6) !important;
+                        }
+                    `;
+                    iframe.contentDocument.head.appendChild(style);
+                }
+            } catch(e) {
+                console.log('Could not inject styles into iframe due to cross-origin restrictions');
+            }
+        }, 1000);
     });
     
     document.getElementById('close-copilot').addEventListener('click', function() {

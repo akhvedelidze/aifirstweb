@@ -6,75 +6,6 @@
     <title>AI-First Strategy | Social Media Automation & AI Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- EmailJS SDK -->
-    <script type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            // Initialize EmailJS with user ID
-            emailjs.init("user_7I1TyT9YbCHrIEGX3tja2");
-
-            document.addEventListener('DOMContentLoaded', function() {
-                // Review Form Handler
-                document.getElementById('reviewForm').addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Show loading state
-                    const submitButton = this.querySelector('button[type="submit"]');
-                    const originalButtonText = submitButton.innerHTML;
-                    submitButton.innerHTML = 'Sending...';
-                    submitButton.disabled = true;
-
-                    // Hide any previous messages
-                    document.getElementById('reviewSuccess').classList.add('hidden');
-                    document.getElementById('reviewError').classList.add('hidden');
-
-                    emailjs.sendForm('service_iqeaiy7', 'template_6e1i2qb', e.target)
-                        .then(function(response) {
-                            console.log('SUCCESS!', response);
-                            document.getElementById('reviewSuccess').classList.remove('hidden');
-                            document.getElementById('reviewForm').reset();
-                        })
-                        .catch(function(error) {
-                            console.error('FAILED...', error);
-                            document.getElementById('reviewError').classList.remove('hidden');
-                            document.getElementById('reviewError').textContent = 'Error: ' + (error.text || error.message || 'Failed to send message. Please try again.');
-                        })
-                        .finally(function() {
-                            // Restore button state
-                            submitButton.innerHTML = originalButtonText;
-                            submitButton.disabled = false;
-                        });
-                });
-
-                // Contact Form Handler
-                document.getElementById('contactForm').addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    
-                    // Show loading state
-                    const submitButton = this.querySelector('button[type="submit"]');
-                    const originalButtonText = submitButton.innerHTML;
-                    submitButton.innerHTML = 'Sending...';
-                    submitButton.disabled = true;
-
-                    emailjs.sendForm('service_iqeaiy7', 'template_6e1i2qb', e.target)
-                        .then(function(response) {
-                            console.log('SUCCESS!', response);
-                            document.getElementById('formSuccess').classList.remove('hidden');
-                            document.getElementById('contactForm').reset();
-                        })
-                        .catch(function(error) {
-                            console.error('FAILED...', error);
-                            alert('Error: ' + (error.text || error.message || 'Failed to send message. Please try again.'));
-                        })
-                        .finally(function() {
-                            // Restore button state
-                            submitButton.innerHTML = originalButtonText;
-                            submitButton.disabled = false;
-                        });
-                });
-            });
-        })();
-    </script>
     <style>
         .gradient-bg {
             background: linear-gradient(135deg, #3b82f6, #8b5cf6);
@@ -388,8 +319,8 @@
                     </div>
                     <div class="md:w-1/2 p-10">
                         <h3 class="text-2xl font-bold mb-6">Claim Your Free Review</h3>
-                        <form id="reviewForm">
-                            <input type="hidden" name="to_email" value="ettopapiashvili@gmail.com">
+                        <form id="reviewForm" action="https://formspree.io/f/meqygrzp" method="POST">
+                            <input type="hidden" name="_subject" value="New Review Request">
                             <div class="space-y-6">
                                 <div>
                                     <label for="review-name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
@@ -610,8 +541,8 @@
                 <div class="md:w-1/2">
                     <div class="bg-white rounded-xl shadow-lg p-8">
                         <h3 class="text-2xl font-bold mb-6">Contact Our <span class="text-blue-600">AI Experts</span></h3>
-                        <form id="contactForm">
-                            <input type="hidden" name="to_email" value="ettopapiashvili@gmail.com">
+                        <form id="contactForm" action="https://formspree.io/f/meqygrzp" method="POST">
+                            <input type="hidden" name="_subject" value="New Contact Request">
                             <div class="grid grid-cols-1 gap-6">
                                 <div>
                                     <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
@@ -708,5 +639,90 @@
             </div>
         </div>
     </footer>
+
+    <!-- Form handling -->
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            // Review Form Handler
+            document.getElementById('reviewForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton.innerHTML;
+                submitButton.innerHTML = 'Sending...';
+                submitButton.disabled = true;
+
+                // Hide any previous messages
+                document.getElementById('reviewSuccess').classList.add('hidden');
+                document.getElementById('reviewError').classList.add('hidden');
+
+                // The form will be submitted to Formspree
+                fetch(e.target.action, {
+                    method: 'POST',
+                    body: new FormData(e.target),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        // Form submission successful
+                        document.getElementById('reviewSuccess').classList.remove('hidden');
+                        document.getElementById('reviewForm').reset();
+                    } else {
+                        // Form submission failed
+                        response.json().then(data => {
+                            document.getElementById('reviewError').classList.remove('hidden');
+                        });
+                    }
+                }).catch(error => {
+                    // Form submission failed
+                    document.getElementById('reviewError').classList.remove('hidden');
+                }).finally(() => {
+                    // Restore button state
+                    submitButton.innerHTML = originalButtonText;
+                    submitButton.disabled = false;
+                });
+            });
+
+            // Contact Form Handler
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show loading state
+                const submitButton = this.querySelector('button[type="submit"]');
+                const originalButtonText = submitButton.innerHTML;
+                submitButton.innerHTML = 'Sending...';
+                submitButton.disabled = true;
+
+                // The form will be submitted to Formspree
+                fetch(e.target.action, {
+                    method: 'POST',
+                    body: new FormData(e.target),
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        // Form submission successful
+                        document.getElementById('formSuccess').classList.remove('hidden');
+                        document.getElementById('contactForm').reset();
+                    } else {
+                        // Form submission failed
+                        response.json().then(data => {
+                            alert('Form submission failed. Please try again.');
+                        });
+                    }
+                }).catch(error => {
+                    // Form submission failed
+                    alert('Form submission failed. Please try again.');
+                }).finally(() => {
+                    // Restore button state
+                    submitButton.innerHTML = originalButtonText;
+                    submitButton.disabled = false;
+                });
+            });
+        });
+    </script>
 </body>
 </html>

@@ -78,27 +78,31 @@
             padding-top: 15px;
             border-top: 1px dashed rgba(79, 70, 229, 0.2);
             position: relative;
-            min-height: 52px; /* Consistent height for all powered-by sections */
+            margin-top: auto;
         }
         .tech-logos {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-top: 8px;
+            margin-top: 6px;
         }
         .tech-logos img {
             height: 18px;
             width: auto;
-            max-width: 60px;
+            max-width: 55px;
             object-fit: contain;
             opacity: 0.7;
             transition: all 0.3s ease;
-            filter: grayscale(100%);
         }
         .tech-logos img:hover {
             opacity: 1;
             transform: scale(1.1);
-            filter: grayscale(0);
+        }
+        .service-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 420px;
         }
     </style>
 </head>
@@ -195,10 +199,10 @@
                     <div class="powered-by">
                         <p class="text-xs text-gray-500">Powered by</p>
                         <div class="tech-logos">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT" style="max-height: 16px;">
-                            <img src="https://crewai.io/img/logo-with-text-dark-sm.svg" alt="CrewAI">
-                            <img src="https://images.ctfassets.net/qqlj6g4ee76j/5Tgab0ETt6mRrXs5Jkbh6F/9d900250ca9cc76a2eedb97f499d1f55/Make-Logo.svg" alt="Make.com">
-                            <img src="https://serper.dev/logo.svg" alt="Serper">
+                            <img src="https://www.vectorlogo.zone/logos/openai/openai-icon.svg" alt="ChatGPT">
+                            <img src="https://www.crewai.io/images/crewai-logo.svg" alt="CrewAI">
+                            <img src="https://www.vectorlogo.zone/logos/integromat/integromat-icon.svg" alt="Make.com">
+                            <img src="https://cdn.worldvectorlogo.com/logos/google-brand.svg" alt="Serper">
                         </div>
                     </div>
                 </div>
@@ -223,10 +227,10 @@
                     <div class="powered-by">
                         <p class="text-xs text-gray-500">Powered by</p>
                         <div class="tech-logos">
-                            <img src="https://pbs.twimg.com/profile_images/1748074602354458624/pR2q_cQ3_400x400.jpg" alt="Perplexity" style="border-radius: 4px;">
-                            <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4XO0j?ver=1bc5" alt="Copilot">
-                            <img src="https://8n8.com/img/8n8-logo.svg" alt="8n8">
-                            <img src="https://serper.dev/logo.svg" alt="Serper">
+                            <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/master/icons/perplexity.svg" alt="Perplexity">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Copilot">
+                            <img src="https://img.icons8.com/color/48/000000/artificial-intelligence.png" alt="8n8">
+                            <img src="https://cdn.worldvectorlogo.com/logos/google-brand.svg" alt="Serper">
                         </div>
                     </div>
                 </div>
@@ -251,10 +255,10 @@
                     <div class="powered-by">
                         <p class="text-xs text-gray-500">Powered by</p>
                         <div class="tech-logos">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT" style="max-height: 16px;">
-                            <img src="https://storage.googleapis.com/web-dev-uploads/image/hVf1flv5Jdag8OQKYqOcJgWUvtz1/L7kLtL6B2PXurbYuh3MG.png" alt="Gemini">
-                            <img src="https://crewai.io/img/logo-with-text-dark-sm.svg" alt="CrewAI">
-                            <img src="https://serper.dev/logo.svg" alt="Serper">
+                            <img src="https://www.vectorlogo.zone/logos/openai/openai-icon.svg" alt="ChatGPT">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Google_Bard_logo.svg" alt="Gemini">
+                            <img src="https://www.crewai.io/images/crewai-logo.svg" alt="CrewAI">
+                            <img src="https://cdn.worldvectorlogo.com/logos/google-brand.svg" alt="Serper">
                         </div>
                     </div>
                 </div>
@@ -279,10 +283,10 @@
                     <div class="powered-by">
                         <p class="text-xs text-gray-500">Powered by</p>
                         <div class="tech-logos">
-                            <img src="https://static.canva.com/web/images/logo_canva_white.svg" alt="Canva" style="filter: brightness(0.8) invert(0.3);">
-                            <img src="https://crewai.io/img/logo-with-text-dark-sm.svg" alt="CrewAI">
-                            <img src="https://storage.googleapis.com/web-dev-uploads/image/hVf1flv5Jdag8OQKYqOcJgWUvtz1/L7kLtL6B2PXurbYuh3MG.png" alt="Gemini">
-                            <img src="https://serper.dev/logo.svg" alt="Serper">
+                            <img src="https://www.vectorlogo.zone/logos/canva/canva-icon.svg" alt="Canva">
+                            <img src="https://www.crewai.io/images/crewai-logo.svg" alt="CrewAI">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Google_Bard_logo.svg" alt="Gemini">
+                            <img src="https://cdn.worldvectorlogo.com/logos/google-brand.svg" alt="Serper">
                         </div>
                     </div>
                 </div>
@@ -307,10 +311,10 @@
                     <div class="powered-by">
                         <p class="text-xs text-gray-500">Powered by</p>
                         <div class="tech-logos">
-                            <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4XO0j?ver=1bc5" alt="Copilot">
-                            <img src="https://8n8.com/img/8n8-logo.svg" alt="8n8">
-                            <img src="https://pbs.twimg.com/profile_images/1748074602354458624/pR2q_cQ3_400x400.jpg" alt="Perplexity" style="border-radius: 4px;">
-                            <img src="https://serper.dev/logo.svg" alt="Serper">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg" alt="Copilot">
+                            <img src="https://img.icons8.com/color/48/000000/artificial-intelligence.png" alt="8n8">
+                            <img src="https://raw.githubusercontent.com/simple-icons/simple-icons/master/icons/perplexity.svg" alt="Perplexity">
+                            <img src="https://cdn.worldvectorlogo.com/logos/google-brand.svg" alt="Serper">
                         </div>
                     </div>
                 </div>
@@ -335,10 +339,10 @@
                     <div class="powered-by">
                         <p class="text-xs text-gray-500">Powered by</p>
                         <div class="tech-logos">
-                            <img src="https://images.ctfassets.net/qqlj6g4ee76j/5Tgab0ETt6mRrXs5Jkbh6F/9d900250ca9cc76a2eedb97f499d1f55/Make-Logo.svg" alt="Make.com">
-                            <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg" alt="ChatGPT" style="max-height: 16px;">
-                            <img src="https://8n8.com/img/8n8-logo.svg" alt="8n8">
-                            <img src="https://serper.dev/logo.svg" alt="Serper">
+                            <img src="https://www.vectorlogo.zone/logos/integromat/integromat-icon.svg" alt="Make.com">
+                            <img src="https://www.vectorlogo.zone/logos/openai/openai-icon.svg" alt="ChatGPT">
+                            <img src="https://img.icons8.com/color/48/000000/artificial-intelligence.png" alt="8n8">
+                            <img src="https://cdn.worldvectorlogo.com/logos/google-brand.svg" alt="Serper">
                         </div>
                     </div>
                 </div>

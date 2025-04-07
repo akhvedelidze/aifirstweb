@@ -43,7 +43,7 @@
                     // Log the data being sent (for debugging)
                     console.log('Sending form data:', formData);
 
-                    emailjs.send("iqeaiy7", "template_6e1i2qb", formData)
+                    emailjs.send("service_iqeaiy7", "template_6e1i2qb", formData)
                         .then(function(response) {
                             console.log('SUCCESS!', response.status, response.text);
                             document.getElementById('reviewSuccess').classList.remove('hidden');
@@ -78,7 +78,7 @@
                         message: document.getElementById('message').value
                     };
 
-                    emailjs.send("iqeaiy7", "template_6e1i2qb", formData)
+                    emailjs.send("service_iqeaiy7", "template_6e1i2qb", formData)
                         .then(function(response) {
                             console.log('SUCCESS!', response.status, response.text);
                             document.getElementById('formSuccess').classList.remove('hidden');

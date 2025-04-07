@@ -16,9 +16,17 @@
         .gradient-bg {
             background: linear-gradient(135deg, #4F46E5, #8B5CF6);
         }
+        .service-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 420px;
+            transform: translateY(0);
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.1);
         }
         .animated-underline {
             position: relative;
@@ -85,24 +93,35 @@
             align-items: center;
             justify-content: space-between;
             margin-top: 6px;
+            height: 30px;
         }
         .tech-logos img {
-            height: 20px;
+            height: 26px;
             width: auto;
-            max-width: 60px;
+            max-width: 78px;
             object-fit: contain;
             opacity: 0.7;
             transition: all 0.3s ease;
+            transform: translateY(0);
         }
         .tech-logos img:hover {
             opacity: 1;
             transform: scale(1.1);
         }
-        .service-card {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-            min-height: 420px;
+        .mt-4.pt-4.border-t.border-gray-100 {
+            visibility: hidden;
+            opacity: 0;
+            height: 0;
+            transition: all 0.3s ease;
+            margin: 0;
+            padding: 0;
+        }
+        .group:hover .mt-4.pt-4.border-t.border-gray-100 {
+            visibility: visible;
+            opacity: 1;
+            height: auto;
+            margin-top: 1rem;
+            padding-top: 1rem;
         }
     </style>
 </head>
@@ -199,10 +218,10 @@
                     <div class="powered-by">
                         <p class="text-xs text-gray-500">Powered by</p>
                         <div class="tech-logos">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openai/openai-original.svg" alt="ChatGPT">
-                            <img src="https://cdn.simpleicons.org/c/6366F1" alt="CrewAI">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zapier/zapier-original.svg" alt="Make.com">
-                            <img src="https://cdn.simpleicons.org/google/4285F4" alt="Serper">
+                            <img src="https://api.iconify.design/simple-icons:openai.svg?color=%236366F1" alt="OpenAI" title="OpenAI" loading="lazy">
+                            <img src="https://cdn.simpleicons.org/c/6366F1" alt="CrewAI" title="CrewAI" loading="lazy">
+                            <img src="https://api.iconify.design/logos:zapier-icon.svg" alt="Make.com" title="Make.com" loading="lazy">
+                            <img src="https://cdn.simpleicons.org/google/4285F4" alt="Google" title="Google API" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -227,10 +246,10 @@
                     <div class="powered-by">
                         <p class="text-xs text-gray-500">Powered by</p>
                         <div class="tech-logos">
-                            <img src="https://cdn.simpleicons.org/perplexity/6366F1" alt="Perplexity">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" alt="Copilot">
-                            <img src="https://cdn.simpleicons.org/intellijidea/6366F1" alt="8n8">
-                            <img src="https://cdn.simpleicons.org/google/4285F4" alt="Serper">
+                            <img src="https://cdn.simpleicons.org/perplexity/6366F1" alt="Perplexity" title="Perplexity AI" loading="lazy">
+                            <img src="https://api.iconify.design/logos:microsoft-icon.svg" alt="Microsoft" title="Microsoft Copilot" loading="lazy">
+                            <img src="https://cdn.simpleicons.org/intellijidea/6366F1" alt="8n8" title="8n8 AI" loading="lazy">
+                            <img src="https://cdn.simpleicons.org/google/4285F4" alt="Google" title="Google API" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -255,10 +274,10 @@
                     <div class="powered-by">
                         <p class="text-xs text-gray-500">Powered by</p>
                         <div class="tech-logos">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openai/openai-original.svg" alt="ChatGPT">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Gemini">
-                            <img src="https://cdn.simpleicons.org/c/6366F1" alt="CrewAI">
-                            <img src="https://cdn.simpleicons.org/google/4285F4" alt="Serper">
+                            <img src="https://api.iconify.design/simple-icons:openai.svg?color=%236366F1" alt="OpenAI" title="OpenAI" loading="lazy">
+                            <img src="https://cdn.simpleicons.org/google/4285F4" alt="Google" title="Google Gemini" loading="lazy">
+                            <img src="https://cdn.simpleicons.org/c/6366F1" alt="CrewAI" title="CrewAI" loading="lazy">
+                            <img src="https://cdn.simpleicons.org/google/4285F4" alt="Google" title="Google API" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -283,10 +302,10 @@
                     <div class="powered-by">
                         <p class="text-xs text-gray-500">Powered by</p>
                         <div class="tech-logos">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/canva/canva-original.svg" alt="Canva">
-                            <img src="https://cdn.simpleicons.org/c/6366F1" alt="CrewAI">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" alt="Gemini">
-                            <img src="https://cdn.simpleicons.org/google/4285F4" alt="Serper">
+                            <img src="https://api.iconify.design/logos:canva.svg" alt="Canva" title="Canva" loading="lazy">
+                            <img src="https://cdn.simpleicons.org/c/6366F1" alt="CrewAI" title="CrewAI" loading="lazy">
+                            <img src="https://cdn.simpleicons.org/google/4285F4" alt="Google" title="Google Gemini" loading="lazy">
+                            <img src="https://cdn.simpleicons.org/google/4285F4" alt="Google" title="Google API" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -311,10 +330,10 @@
                     <div class="powered-by">
                         <p class="text-xs text-gray-500">Powered by</p>
                         <div class="tech-logos">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoft/microsoft-original.svg" alt="Copilot">
-                            <img src="https://cdn.simpleicons.org/intellijidea/6366F1" alt="8n8">
-                            <img src="https://cdn.simpleicons.org/perplexity/6366F1" alt="Perplexity">
-                            <img src="https://cdn.simpleicons.org/google/4285F4" alt="Serper">
+                            <img src="https://api.iconify.design/logos:microsoft-icon.svg" alt="Microsoft" title="Microsoft Copilot" loading="lazy">
+                            <img src="https://cdn.simpleicons.org/intellijidea/6366F1" alt="8n8" title="8n8 AI" loading="lazy">
+                            <img src="https://cdn.simpleicons.org/perplexity/6366F1" alt="Perplexity" title="Perplexity AI" loading="lazy">
+                            <img src="https://cdn.simpleicons.org/google/4285F4" alt="Google" title="Google API" loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -339,10 +358,10 @@
                     <div class="powered-by">
                         <p class="text-xs text-gray-500">Powered by</p>
                         <div class="tech-logos">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/zapier/zapier-original.svg" alt="Make.com">
-                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/openai/openai-original.svg" alt="ChatGPT">
-                            <img src="https://cdn.simpleicons.org/intellijidea/6366F1" alt="8n8">
-                            <img src="https://cdn.simpleicons.org/google/4285F4" alt="Serper">
+                            <img src="https://api.iconify.design/logos:zapier-icon.svg" alt="Make.com" title="Make.com" loading="lazy">
+                            <img src="https://api.iconify.design/simple-icons:openai.svg?color=%236366F1" alt="OpenAI" title="OpenAI" loading="lazy">
+                            <img src="https://cdn.simpleicons.org/intellijidea/6366F1" alt="8n8" title="8n8 AI" loading="lazy">
+                            <img src="https://cdn.simpleicons.org/google/4285F4" alt="Google" title="Google API" loading="lazy">
                         </div>
                     </div>
                 </div>

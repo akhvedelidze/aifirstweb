@@ -817,6 +817,19 @@
     <chat-bot platform_id="ebfcef19-39dc-4f4a-b031-4d6e65bc8324" user_id="0f9e56a0-8000-4bb6-84fe-d298c7f66e1e" chatbot_id="27e1abeb-a7b8-4f05-89d2-bd3022f1e7ec"><a href="https://www.chatsimple.ai/?utm_source=widget&utm_medium=referral">chatsimple</a></chat-bot>
     <script src="https://cdn.chatsimple.ai/chat-bot-loader.js" defer></script>
 
+    <!-- Microsoft Copilot Studio Chatbot Widget -->
+    <div id="ms-copilot-container" style="position: fixed; left: 20px; bottom: 100px; width: 350px; height: 500px; z-index: 1000; border-radius: 16px; overflow: hidden; box-shadow: 0 15px 30px rgba(79, 70, 229, 0.3); display: none;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 45px; background: linear-gradient(135deg, #4F46E5, #8B5CF6); display: flex; align-items: center; justify-content: space-between; padding: 0 15px; z-index: 1001;">
+            <div style="color: white; font-weight: bold; font-family: sans-serif;">AI Assistant</div>
+            <button id="close-copilot" style="background: rgba(255,255,255,0.2); color: white; border: none; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: all 0.3s ease;">×</button>
+        </div>
+        <iframe src="https://copilotstudio.microsoft.com/environments/Default-a6be5ea2-0bb1-4b8c-9def-78a267a5638b/bots/cr129_guideToNetworkPreview/webchat?__version__=2" frameborder="0" style="width: 100%; height: 100%; padding-top: 45px; box-sizing: border-box;"></iframe>
+    </div>
+    
+    <button id="open-copilot" style="position: fixed; left: 20px; bottom: 20px; background: linear-gradient(135deg, #4F46E5, #8B5CF6); color: white; border: none; width: 60px; height: 60px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4); z-index: 999; transition: all 0.3s ease;">
+        <i class="fas fa-robot" style="font-size: 24px;"></i>
+    </button>
+
 </body>
 </html>
 <script>
@@ -932,5 +945,34 @@
         */
         // Don't auto-run the test function
         // setTimeout(testForm, 2000);
+    });
+
+    // Microsoft Copilot Studio Widget Controls
+    document.getElementById('open-copilot').addEventListener('click', function() {
+        document.getElementById('ms-copilot-container').style.display = 'block';
+        this.style.display = 'none';
+    });
+    
+    document.getElementById('close-copilot').addEventListener('click', function() {
+        document.getElementById('ms-copilot-container').style.display = 'none';
+        document.getElementById('open-copilot').style.display = 'flex';
+    });
+
+    // Add hover effect to the open button
+    document.getElementById('open-copilot').addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.05)';
+    });
+    
+    document.getElementById('open-copilot').addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+    });
+    
+    // Add hover effect to the close button
+    document.getElementById('close-copilot').addEventListener('mouseenter', function() {
+        this.style.background = 'rgba(255,255,255,0.3)';
+    });
+    
+    document.getElementById('close-copilot').addEventListener('mouseleave', function() {
+        this.style.background = 'rgba(255,255,255,0.2)';
     });
 </script>

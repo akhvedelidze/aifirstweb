@@ -320,7 +320,9 @@
                     <div class="md:w-1/2 p-10">
                         <h3 class="text-2xl font-bold mb-6">Claim Your Free Review</h3>
                         <form id="reviewForm" action="https://formsubmit.co/ettopapiashvili@gmail.com" method="POST">
-                            <input type="hidden" name="_subject" value="New Review Request">
+                            <input type="hidden" name="_subject" value="New Review Request from AI-First Website">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
                             <input type="hidden" name="_next" value="https://akhvedelidze.github.io/aifirstweb/thanks.html">
                             <div class="space-y-6">
                                 <div>
@@ -543,7 +545,9 @@
                     <div class="bg-white rounded-xl shadow-lg p-8">
                         <h3 class="text-2xl font-bold mb-6">Contact Our <span class="text-blue-600">AI Experts</span></h3>
                         <form id="contactForm" action="https://formsubmit.co/ettopapiashvili@gmail.com" method="POST">
-                            <input type="hidden" name="_subject" value="New Contact Request">
+                            <input type="hidden" name="_subject" value="New Contact Request from AI-First Website">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_template" value="table">
                             <input type="hidden" name="_next" value="https://akhvedelidze.github.io/aifirstweb/thanks.html">
                             <div class="grid grid-cols-1 gap-6">
                                 <div>
@@ -641,90 +645,5 @@
             </div>
         </div>
     </footer>
-
-    <!-- Form handling -->
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-            // Review Form Handler
-            document.getElementById('reviewForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Show loading state
-                const submitButton = this.querySelector('button[type="submit"]');
-                const originalButtonText = submitButton.innerHTML;
-                submitButton.innerHTML = 'Sending...';
-                submitButton.disabled = true;
-
-                // Hide any previous messages
-                document.getElementById('reviewSuccess').classList.add('hidden');
-                document.getElementById('reviewError').classList.add('hidden');
-
-                // The form will be submitted to Formspree
-                fetch(e.target.action, {
-                    method: 'POST',
-                    body: new FormData(e.target),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                }).then(response => {
-                    if (response.ok) {
-                        // Form submission successful
-                        document.getElementById('reviewSuccess').classList.remove('hidden');
-                        document.getElementById('reviewForm').reset();
-                    } else {
-                        // Form submission failed
-                        response.json().then(data => {
-                            document.getElementById('reviewError').classList.remove('hidden');
-                        });
-                    }
-                }).catch(error => {
-                    // Form submission failed
-                    document.getElementById('reviewError').classList.remove('hidden');
-                }).finally(() => {
-                    // Restore button state
-                    submitButton.innerHTML = originalButtonText;
-                    submitButton.disabled = false;
-                });
-            });
-
-            // Contact Form Handler
-            document.getElementById('contactForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                // Show loading state
-                const submitButton = this.querySelector('button[type="submit"]');
-                const originalButtonText = submitButton.innerHTML;
-                submitButton.innerHTML = 'Sending...';
-                submitButton.disabled = true;
-
-                // The form will be submitted to Formspree
-                fetch(e.target.action, {
-                    method: 'POST',
-                    body: new FormData(e.target),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                }).then(response => {
-                    if (response.ok) {
-                        // Form submission successful
-                        document.getElementById('formSuccess').classList.remove('hidden');
-                        document.getElementById('contactForm').reset();
-                    } else {
-                        // Form submission failed
-                        response.json().then(data => {
-                            alert('Form submission failed. Please try again.');
-                        });
-                    }
-                }).catch(error => {
-                    // Form submission failed
-                    alert('Form submission failed. Please try again.');
-                }).finally(() => {
-                    // Restore button state
-                    submitButton.innerHTML = originalButtonText;
-                    submitButton.disabled = false;
-                });
-            });
-        });
-    </script>
 </body>
 </html>

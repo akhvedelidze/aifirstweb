@@ -14,7 +14,7 @@
     </script>
     <style>
         .gradient-bg {
-            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            background: linear-gradient(135deg, #4F46E5, #8B5CF6);
         }
         .service-card:hover {
             transform: translateY(-10px);
@@ -32,7 +32,7 @@
             height: 2px;
             bottom: 0;
             left: 0;
-            background-color: #8b5cf6;
+            background-color: #A78BFA;
             transform-origin: bottom right;
             transition: transform 0.25s ease-out;
         }
@@ -52,7 +52,7 @@
             position: absolute;
             top: -10px;
             right: -10px;
-            background: #ef4444;
+            background: #EF4444;
             color: white;
             padding: 5px 10px;
             border-radius: 9999px;
@@ -60,6 +60,18 @@
             font-weight: bold;
             transform: rotate(15deg);
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .tech-bg {
+            background-color: #F5F3FF;
+        }
+        .ai-glow {
+            box-shadow: 0 0 15px rgba(79, 70, 229, 0.2);
+        }
+        .indigo-text {
+            color: #4F46E5;
+        }
+        .ai-border {
+            border: 1px solid rgba(79, 70, 229, 0.3);
         }
     </style>
 </head>
@@ -70,23 +82,23 @@
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
                     <div class="flex-shrink-0">
-                        <span class="text-2xl font-bold text-blue-600">AI-First<span class="text-purple-600">Strategy</span></span>
+                        <span class="text-2xl font-bold text-indigo-600">AI-First<span class="text-purple-500"> Strategy</span></span>
                     </div>
                     <div class="hidden md:block">
                         <div class="ml-10 flex items-baseline space-x-4">
-                            <a href="#home" class="px-3 py-2 rounded-md text-sm font-medium text-blue-600 bg-blue-50">Home</a>
-                            <a href="#services" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50">Services</a>
-                            <a href="#social-media" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50">Social Media AI</a>
-                            <a href="#offer" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50">Free Review</a>
-                            <a href="#contact" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50">Contact</a>
+                            <a href="#home" class="px-3 py-2 rounded-md text-sm font-medium text-indigo-600 bg-indigo-50">Home</a>
+                            <a href="#services" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-indigo-50">Services</a>
+                            <a href="#social-media" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-indigo-50">Social Media AI</a>
+                            <a href="#offer" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-indigo-50">Free Review</a>
+                            <a href="#contact" class="px-3 py-2 rounded-md text-sm font-medium text-gray-600 hover:text-indigo-600 hover:bg-indigo-50">Contact</a>
                         </div>
                     </div>
                 </div>
                 <div class="hidden md:block">
-                    <a href="#offer" class="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">Get Free Review</a>
+                    <a href="#offer" class="px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700">Get Free Review</a>
                 </div>
                 <div class="-mr-2 flex md:hidden">
-                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-blue-600 focus:outline-none">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-indigo-600 focus:outline-none">
                         <span class="sr-only">Open main menu</span>
                         <i class="fas fa-bars"></i>
                     </button>
@@ -97,12 +109,12 @@
         <!-- Mobile menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-blue-600 bg-blue-50">Home</a>
-                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50">Services</a>
-                <a href="#social-media" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50">Social Media AI</a>
-                <a href="#offer" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50">Free Review</a>
-                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-blue-50">Contact</a>
-                <a href="#offer" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-blue-600 hover:bg-blue-700">Get Free Review</a>
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-indigo-600 bg-indigo-50">Home</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600 hover:bg-indigo-50">Services</a>
+                <a href="#social-media" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600 hover:bg-indigo-50">Social Media AI</a>
+                <a href="#offer" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600 hover:bg-indigo-50">Free Review</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-indigo-600 hover:bg-indigo-50">Contact</a>
+                <a href="#offer" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">Get Free Review</a>
             </div>
         </div>
     </nav>
@@ -113,9 +125,9 @@
             <div class="md:flex items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0">
                     <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">Transform Your <span class="animated-underline">Social Media</span> with AI Automation</h1>
-                    <p class="text-xl mb-8 text-blue-100">We help businesses leverage artificial intelligence to automate social media, create content, and engage audiences at scale.</p>
+                    <p class="text-xl mb-8 text-indigo-100">We help businesses leverage artificial intelligence to automate social media, create content, and engage audiences at scale.</p>
                     <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="#offer" class="px-8 py-3 text-center rounded-md text-lg font-medium text-blue-600 bg-white hover:bg-gray-100 transition duration-300">Get Free Strategy Review</a>
+                        <a href="#offer" class="px-8 py-3 text-center rounded-md text-lg font-medium text-indigo-600 bg-white hover:bg-gray-100 transition duration-300">Get Free Strategy Review</a>
                         <a href="#social-media" class="px-8 py-3 text-center rounded-md text-lg font-medium text-white border-2 border-white hover:bg-white hover:bg-opacity-10 transition duration-300">See Social AI Solutions</a>
                     </div>
                 </div>
@@ -130,92 +142,92 @@
     <section id="services" class="py-20 px-4">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our <span class="text-blue-600">AI Services</span></h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Our <span class="text-indigo-600">AI Services</span></h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">Comprehensive AI solutions with a focus on social media automation</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
-                <div class="service-card bg-white rounded-xl shadow-lg p-8 transition duration-300">
+                <div class="service-card bg-white rounded-xl shadow-lg p-8 transition duration-300 ai-glow">
                     <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-robot text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">AI-Powered Social Media Automation</h3>
                     <p class="text-gray-600 mb-4">Automate content creation, scheduling, and engagement across all platforms with our intelligent systems.</p>
                     <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Content generation</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Optimal posting times</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Automated engagement</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Content generation</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Optimal posting times</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Automated engagement</li>
                     </ul>
                 </div>
                 
                 <!-- Service 2 -->
-                <div class="service-card bg-white rounded-xl shadow-lg p-8 transition duration-300">
+                <div class="service-card bg-white rounded-xl shadow-lg p-8 transition duration-300 ai-glow">
                     <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-brain text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Social Listening & Sentiment Analysis</h3>
                     <p class="text-gray-600 mb-4">Understand audience sentiment and brand mentions across social platforms in real-time.</p>
                     <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Brand monitoring</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Competitor analysis</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Crisis detection</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Brand monitoring</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Competitor analysis</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Crisis detection</li>
                     </ul>
                 </div>
                 
                 <!-- Service 3 -->
-                <div class="service-card bg-white rounded-xl shadow-lg p-8 transition duration-300">
+                <div class="service-card bg-white rounded-xl shadow-lg p-8 transition duration-300 ai-glow">
                     <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-comments text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">AI Chatbots for Social Messaging</h3>
                     <p class="text-gray-600 mb-4">Automate customer service and engagement through AI-powered chatbots on social platforms.</p>
                     <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> 24/7 responses</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Natural conversations</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Lead qualification</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> 24/7 responses</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Natural conversations</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Lead qualification</li>
                     </ul>
                 </div>
                 
                 <!-- Service 4 -->
-                <div class="service-card bg-white rounded-xl shadow-lg p-8 transition duration-300">
+                <div class="service-card bg-white rounded-xl shadow-lg p-8 transition duration-300 ai-glow">
                     <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-eye text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Visual Content Generation</h3>
                     <p class="text-gray-600 mb-4">AI-generated images, videos, and graphics tailored for social media engagement.</p>
                     <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Custom branded visuals</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Platform-optimized formats</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> A/B testing variants</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Custom branded visuals</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Platform-optimized formats</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> A/B testing variants</li>
                     </ul>
                 </div>
                 
                 <!-- Service 5 -->
-                <div class="service-card bg-white rounded-xl shadow-lg p-8 transition duration-300">
+                <div class="service-card bg-white rounded-xl shadow-lg p-8 transition duration-300 ai-glow">
                     <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-chart-line text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Performance Prediction & Optimization</h3>
                     <p class="text-gray-600 mb-4">AI models that predict content performance and suggest improvements before posting.</p>
                     <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Engagement forecasting</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Hashtag recommendations</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Content scoring</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Engagement forecasting</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Hashtag recommendations</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Content scoring</li>
                     </ul>
                 </div>
                 
                 <!-- Service 6 -->
-                <div class="service-card bg-white rounded-xl shadow-lg p-8 transition duration-300">
+                <div class="service-card bg-white rounded-xl shadow-lg p-8 transition duration-300 ai-glow">
                     <div class="w-16 h-16 gradient-bg rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-cogs text-white text-2xl"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3">Influencer Matching & Campaign AI</h3>
                     <p class="text-gray-600 mb-4">AI-powered influencer discovery and campaign management for maximum ROI.</p>
                     <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Audience alignment</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Fake follower detection</li>
-                        <li class="flex items-center"><i class="fas fa-check-circle text-blue-500 mr-2"></i> Performance tracking</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Audience alignment</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Fake follower detection</li>
+                        <li class="flex items-center"><i class="fas fa-check-circle text-indigo-500 mr-2"></i> Performance tracking</li>
                     </ul>
                 </div>
             </div>
@@ -223,17 +235,17 @@
     </section>
 
     <!-- Social Media AI Section -->
-    <section id="social-media" class="bg-gray-50 py-20 px-4">
+    <section id="social-media" class="tech-bg py-20 px-4">
         <div class="max-w-7xl mx-auto">
             <div class="md:flex items-center">
                 <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Social Media <span class="text-blue-600">AI Automation</span></h2>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Social Media <span class="text-indigo-600">AI Automation</span></h2>
                     <p class="text-gray-600 mb-6">Our proprietary AI systems transform how you manage social media, saving time while increasing engagement and conversions.</p>
                     
                     <div class="space-y-4">
                         <div class="flex items-start">
                             <div class="flex-shrink-0 mt-1">
-                                <div class="flex items-center justify-center h-8 w-8 rounded-full bg-blue-100 text-blue-600">
+                                <div class="flex items-center justify-center h-8 w-8 rounded-full bg-indigo-100 text-indigo-600">
                                     <i class="fas fa-check"></i>
                                 </div>
                             </div>
@@ -245,7 +257,7 @@
                         
                         <div class="flex items-start">
                             <div class="flex-shrink-0 mt-1">
-                                <div class="flex items-center justify-center h-8 w-8 rounded-full bg-blue-100 text-blue-600">
+                                <div class="flex items-center justify-center h-8 w-8 rounded-full bg-indigo-100 text-indigo-600">
                                     <i class="fas fa-check"></i>
                                 </div>
                             </div>
@@ -257,7 +269,7 @@
                         
                         <div class="flex items-start">
                             <div class="flex-shrink-0 mt-1">
-                                <div class="flex items-center justify-center h-8 w-8 rounded-full bg-blue-100 text-blue-600">
+                                <div class="flex items-center justify-center h-8 w-8 rounded-full bg-indigo-100 text-indigo-600">
                                     <i class="fas fa-check"></i>
                                 </div>
                             </div>
@@ -269,7 +281,7 @@
                     </div>
                     
                     <div class="mt-8">
-                        <a href="#contact" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">
+                        <a href="#contact" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700">
                             Automate Your Social Media
                             <i class="fas fa-arrow-right ml-3"></i>
                         </a>
@@ -277,7 +289,7 @@
                 </div>
                 
                 <div class="md:w-1/2">
-                    <div class="bg-white p-6 rounded-xl shadow-lg">
+                    <div class="bg-white p-6 rounded-xl shadow-lg ai-glow">
                         <img src="https://cdn-icons-png.flaticon.com/512/1055/1055687.png" alt="Social Media Dashboard" class="rounded-lg w-full">
                         <div class="mt-6">
                             <h4 class="text-lg font-medium mb-2">AI Social Media Command Center</h4>
@@ -300,8 +312,8 @@
                                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Free Social Media <span class="animated-underline">AI Strategy</span> Review</h2>
                                 <div class="offer-badge">LIMITED TIME</div>
                             </div>
-                            <p class="text-xl mb-6 text-blue-100">Get a comprehensive analysis of your current social media strategy with actionable AI-powered recommendations.</p>
-                            <ul class="space-y-3 text-blue-100">
+                            <p class="text-xl mb-6 text-indigo-100">Get a comprehensive analysis of your current social media strategy with actionable AI-powered recommendations.</p>
+                            <ul class="space-y-3 text-indigo-100">
                                 <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3"></i> <span>Content performance audit</span></li>
                                 <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3"></i> <span>AI opportunity assessment</span></li>
                                 <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3"></i> <span>Competitor benchmark</span></li>
@@ -315,19 +327,19 @@
                             <div class="space-y-6">
                                 <div>
                                     <label for="review-name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                                    <input type="text" id="review-name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <input type="text" id="review-name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                                 <div>
                                     <label for="review-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                                    <input type="email" id="review-email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <input type="email" id="review-email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                                 <div>
                                     <label for="review-company" class="block text-sm font-medium text-gray-700 mb-1">Company</label>
-                                    <input type="text" id="review-company" name="company" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <input type="text" id="review-company" name="company" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                                 <div>
                                     <label for="review-platforms" class="block text-sm font-medium text-gray-700 mb-1">Social Media Platforms Used</label>
-                                    <select id="review-platforms" name="platforms" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" multiple>
+                                    <select id="review-platforms" name="platforms" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" multiple>
                                         <option value="facebook">Facebook</option>
                                         <option value="instagram">Instagram</option>
                                         <option value="twitter">Twitter</option>
@@ -339,15 +351,15 @@
                                 </div>
                                 <div>
                                     <label for="review-account" class="block text-sm font-medium text-gray-700 mb-1">Social Media Account</label>
-                                    <input type="text" id="review-account" name="account" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="e.g., @yourusername" required>
+                                    <input type="text" id="review-account" name="account" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="e.g., @yourusername" required>
                                 </div>
                                 <div>
                                     <label for="review-goals" class="block text-sm font-medium text-gray-700 mb-1">Primary Social Media Goals</label>
-                                    <textarea id="review-goals" name="goals" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Brand awareness, lead generation, community building, etc."></textarea>
+                                    <textarea id="review-goals" name="goals" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Brand awareness, lead generation, community building, etc."></textarea>
                                 </div>
                             </div>
                             <div class="mt-8">
-                                <button type="submit" class="w-full px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition">
+                                <button type="submit" class="w-full px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition">
                                     Get My Free Strategy Review
                                 </button>
                             </div>
@@ -392,7 +404,7 @@
     <section class="py-20 px-4 bg-gray-50">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our <span class="text-blue-600">Clients Say</span></h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our <span class="text-indigo-600">Clients Say</span></h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">Don't just take our word for it - hear from businesses that automated their social media</p>
             </div>
             
@@ -468,13 +480,13 @@
         <div class="max-w-7xl mx-auto">
             <div class="md:flex">
                 <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Get in <span class="text-blue-600">Touch</span></h2>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Get in <span class="text-indigo-600">Touch</span></h2>
                     <p class="text-gray-600 mb-8">Ready to automate your social media with AI? Contact our team for a consultation.</p>
                     
                     <div class="space-y-6">
                         <div class="flex items-start">
                             <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100 text-blue-600">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-indigo-100 text-indigo-600">
                                     <i class="fas fa-map-marker-alt"></i>
                                 </div>
                             </div>
@@ -486,7 +498,7 @@
                         
                         <div class="flex items-start">
                             <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100 text-blue-600">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-indigo-100 text-indigo-600">
                                     <i class="fas fa-envelope"></i>
                                 </div>
                             </div>
@@ -498,7 +510,7 @@
                         
                         <div class="flex items-start">
                             <div class="flex-shrink-0">
-                                <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-blue-100 text-blue-600">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-lg bg-indigo-100 text-indigo-600">
                                     <i class="fas fa-phone-alt"></i>
                                 </div>
                             </div>
@@ -512,16 +524,16 @@
                     <div class="mt-10">
                         <h4 class="text-lg font-medium mb-4">Follow Us</h4>
                         <div class="flex space-x-4">
-                            <a href="#" class="h-10 w-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                            <a href="#" class="h-10 w-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition">
                                 <i class="fab fa-twitter"></i>
                             </a>
-                            <a href="https://www.linkedin.com/in/epapiashvili/" class="h-10 w-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                            <a href="https://www.linkedin.com/in/epapiashvili/" class="h-10 w-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="#" class="h-10 w-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                            <a href="#" class="h-10 w-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition">
                                 <i class="fab fa-instagram"></i>
                             </a>
-                            <a href="#" class="h-10 w-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center hover:bg-blue-600 hover:text-white transition">
+                            <a href="#" class="h-10 w-10 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center hover:bg-indigo-600 hover:text-white transition">
                                 <i class="fab fa-youtube"></i>
                             </a>
                         </div>
@@ -529,25 +541,25 @@
                 </div>
                 
                 <div class="md:w-1/2">
-                    <div class="bg-white rounded-xl shadow-lg p-8">
-                        <h3 class="text-2xl font-bold mb-6">Contact Our <span class="text-blue-600">AI Experts</span></h3>
+                    <div class="bg-white rounded-xl shadow-lg p-8 ai-glow ai-border">
+                        <h3 class="text-2xl font-bold mb-6">Contact Our <span class="text-indigo-600">AI Experts</span></h3>
                         <form id="contactForm">
                             <div class="grid grid-cols-1 gap-6">
                                 <div>
                                     <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                                 <div>
                                     <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
                                 </div>
                                 <div>
                                     <label for="message" class="block text-sm font-medium text-gray-700 mb-1">How can we help?</label>
-                                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Tell us about your social media challenges and goals"></textarea>
+                                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Tell us about your social media challenges and goals"></textarea>
                                 </div>
                             </div>
                             <div class="mt-6">
-                                <button type="submit" class="w-full px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition">
+                                <button type="submit" class="w-full px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition">
                                     Send Message
                                 </button>
                             </div>
@@ -565,8 +577,8 @@
     <section class="gradient-bg text-white py-16 px-4">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your <span class="animated-underline">Social Media</span> with AI?</h2>
-            <p class="text-xl mb-8 text-blue-100">Claim your free strategy review and discover how AI can 10X your social media results.</p>
-            <a href="#offer" class="inline-block px-8 py-3 text-lg font-medium rounded-md text-blue-600 bg-white hover:bg-gray-100 transition duration-300">Get My Free Review</a>
+            <p class="text-xl mb-8 text-indigo-100">Claim your free strategy review and discover how AI can 10X your social media results.</p>
+            <a href="#offer" class="inline-block px-8 py-3 text-lg font-medium rounded-md text-indigo-600 bg-white hover:bg-gray-100 transition duration-300">Get My Free Review</a>
         </div>
     </section>
 
@@ -575,7 +587,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-xl font-bold text-white mb-4">AI-First<span class="text-blue-400">Strategy</span></h3>
+                    <h3 class="text-xl font-bold text-white mb-4">AI-First<span class="text-indigo-400">Strategy</span></h3>
                     <p class="mb-4">Social media automation and AI strategy for forward-thinking brands.</p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>

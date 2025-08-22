@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-First Media | Social Media Automation & AI Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+    <script>
+        (function() {
+            emailjs.init("DWAmqxsJusZt6d_SO");
+        })();
+    </script>
+    <style>
+        .gradient-bg {
+            background: #0A0F2C;
+        }
+        .service-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            min-height: 420px;
+            transform: translateY(0);
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.15);
+            background: linear-gradient(to bottom right, rgba(10, 15, 44, 0.02), rgba(99, 102, 241, 0.05));
+        }
+        .animated-underline {
+            position: relative;
+            display: inline-block;
+            color: #6366F1;
+        }
+        .animated-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #6366F1;
+            transform-origin: bottom right;
+            transition: transform 0.25s ease-out;
+        }
+        .animated-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0% { transform: translate(0, 0px); }
+            50% { transform: translate(0, 15px); }
+            100% { transform: translate(0, -0px); }
+        }
+        .offer-badge {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #EF4444;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            transform: rotate(15deg);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .tech-bg {
+            background-color: #0A0F2C;
+            color: white;
+        }
+        .ai-glow {
+            box-shadow: 0 8px 24px rgba(99, 102, 241, 0.12);
+        }
+        .indigo-text {
+            color: #6366F1;
+        }
+        .ai-border {
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+        body {
+            background-color: #F8FAFC;
+        }
+        .nav-link {
+            color: #E2E8F0;
+            transition: color 0.2s ease;
+        }
+        .nav-link:hover {
+            color: #FFFFFF;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: #1E293B;
+        }
+        p {
+            color: #64748B;
+        }
+        .gradient-bg p {
+            color: #E2E8F0;
+        }
+        .gradient-bg h1, .gradient-bg h2, .gradient-bg h3, .gradient-bg h4 {
+            color: #FFFFFF;
+        }
+        .feature-icon {
+            background: linear-gradient(135deg, #6366F1, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #6366F1, #8B5CF6);
+            border: none;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(99, 102, 241, 0.2);
+        }
+        .card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+        .powered-by {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px dashed rgba(79, 70, 229, 0.2);
+            position: relative;
+            margin-top: auto;
+            background-color: rgba(240, 242, 255, 0.7);
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .tech-logos {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 10px;
+            height: 30px;
+        }
+        .tech-logos img {
+            height: 26px;
+            width: auto;
+            max-width: 78px;
+            object-fit: contain;
+            opacity: 0.7;
+            transition: all 0.3s ease;
+            transform: translateY(0);
+        }
+        .tech-logos img:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+        .mt-4.pt-4.border-t.border-gray-100 {
+            visibility: hidden;
+            opacity: 0;
+            height: 0;
+            transition: all 0.3s ease;
+            margin: 0;
+            padding: 0;
+        }
+        .group:hover .mt-4.pt-4.border-t.border-gray-100 {
+            visibility: visible;
+            opacity: 1;
+            height: auto;
+            margin-top: 1rem;
+            padding-top: 1rem;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-[#F8FAFC]">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full z-10">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 py-2 px-2">
+                        <a href="#home" class="text-decoration-none">
+                            <span class="text-2xl font-bold text-[#0A0F2C]">AI-First<span class="text-[#6366F1]"> Strategy</span></span>
+                        </a>
+                    </div>
+                    <div class="hidden md:block ml-6">
+                        <div class="flex items-baseline space-x-6">
+                            <a href="#home" class="text-[#0A0F2C] hover:text-[#6366F1] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Home</a>
+                            <a href="#services" class="text-[#0A0F2C] hover:text-[#6366F1] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Services</a>
+                            <a href="#social-media" class="text-[#0A0F2C] hover:text-[#6366F1] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Social Media AI</a>
+                            <a href="#offer" class="text-[#0A0F2C] hover:text-[#6366F1] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Free Review</a>
+                            <a href="#contact" class="text-[#0A0F2C] hover:text-[#6366F1] px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hidden md:block">
+                    <a href="#offer" class="bg-[#0A0F2C] hover:bg-[#1a1f3d] text-white px-6 py-2 rounded-lg transition-colors duration-200">Get Free Review</a>
+                </div>
+                <div class="-mr-2 flex md:hidden">
+                    <button type="button" id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md text-[#0A0F2C] hover:text-white hover:bg-[#0A0F2C] focus:outline-none">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-[#0A0F2C]">Home</a>
+                <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-[#0A0F2C] hover:text-white hover:bg-[#0A0F2C] transition-colors duration-200">Services</a>
+                <a href="#social-media" class="block px-3 py-2 rounded-md text-base font-medium text-[#0A0F2C] hover:text-white hover:bg-[#0A0F2C] transition-colors duration-200">Social Media AI</a>
+                <a href="#offer" class="block px-3 py-2 rounded-md text-base font-medium text-[#0A0F2C] hover:text-white hover:bg-[#0A0F2C] transition-colors duration-200">Free Review</a>
+                <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-[#0A0F2C] hover:text-white hover:bg-[#0A0F2C] transition-colors duration-200">Contact</a>
+                <a href="#offer" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-[#0A0F2C] hover:bg-[#1a1f3d] transition-colors duration-200 mt-4">Get Free Review</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white pt-32 pb-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">Boost your <span class="animated-underline text-white">productivity</span> with AI automation</h1>
+                    <p class="text-xl mb-8 text-gray-300">Increase your social media engagement, grow your audience, and measure performance—all powered by AI</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#offer" class="btn-primary text-center font-medium">Get Free Strategy Review</a>
+                        <a href="#social-media" class="px-8 py-3 text-center rounded-md text-lg font-medium text-white border-2 border-white hover:bg-white hover:bg-opacity-10 transition duration-300">See AI Solutions</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <img src="robot-analytics.png" alt="AI Robot for Social Media Analytics" class="w-4/5 md:w-3/4 floating">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 px-4 relative bg-[#F8FAFC]">
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Our <span class="text-[#0A0F2C]">AI Services</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Cutting-edge AI solutions designed to transform your social media strategy</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-8">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="p-8">
+                        <div class="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-robot text-[#6366F1] text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-[#1E293B]">Advanced AI Content Creation</h3>
+                        <p class="text-gray-600 mb-4">Create engaging content across platforms with our next-gen AI models and automation.</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-[#6366F1] mr-2"></i> Multi-modal content generation</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-[#6366F1] mr-2"></i> Brand voice customization</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-[#6366F1] mr-2"></i> Real-time optimization</li>
+                        </ul>
+                    </div>
+                    <div class="mt-auto p-8 pt-0">
+                        <div class="powered-by border-t border-gray-100 pt-4">
+                            <p class="text-sm font-medium text-[#3b5998] mb-2">Powered by</p>
+                            <div class="tech-logos">
+                                <img src="https://api.iconify.design/simple-icons:openai.svg?color=%236366F1" alt="OpenAI" title="OpenAI GPT-4" loading="lazy">
+                                <img src="https://cdn.simpleicons.org/anthropic/6366F1" alt="Anthropic" title="Claude" loading="lazy">
+                                <img src="https://cdn.simpleicons.org/googlecloud/4285F4" alt="Google" title="Gemini Pro" loading="lazy">
+                                <img src="https://api.iconify.design/logos:firebase.svg" alt="Firebase" title="Firebase" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="p-8">
+                        <div class="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-brain text-[#6366F1] text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-[#1E293B]">Social Listening & Sentiment Analysis</h3>
+                        <p class="text-gray-600 mb-4">Understand audience sentiment and brand mentions across social platforms in real-time.</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-[#6366F1] mr-2"></i> Brand monitoring</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-[#6366F1] mr-2"></i> Competitor analysis</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-[#6366F1] mr-2"></i> Crisis detection</li>
+                        </ul>
+                    </div>
+                    <div class="mt-auto p-8 pt-0">
+                        <div class="powered-by border-t border-gray-100 pt-4">
+                            <p class="text-sm font-medium text-[#3b5998] mb-2">Powered by</p>
+                            <div class="tech-logos">
+                                <img src="https://cdn.simpleicons.org/perplexity/6366F1" alt="Perplexity" title="Perplexity AI" loading="lazy">
+                                <img src="https://api.iconify.design/logos:microsoft-icon.svg" alt="Microsoft" title="Microsoft Copilot" loading="lazy">
+                                <img src="https://cdn.simpleicons.org/n8n/6366F1" alt="n8n" title="n8n Automation" loading="lazy">
+                                <img src="https://api.iconify.design/logos:google-icon.svg" alt="Google" title="Google API" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="p-8">
+                        <div class="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-comments text-[#6366F1] text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-[#1E293B]">AI Chatbots for Social Messaging</h3>
+                        <p class="text-gray-600 mb-4">Automate customer service and engagement through AI-powered chatbots on social platforms.</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-[#6366F1] mr-2"></i> 24/7 responses</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-[#6366F1] mr-2"></i> Natural conversations</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-[#6366F1] mr-2"></i> Lead qualification</li>
+                        </ul>
+                    </div>
+                    <div class="mt-auto p-8 pt-0">
+                        <div class="powered-by border-t border-gray-100 pt-4">
+                            <p class="text-sm font-medium text-[#3b5998] mb-2">Powered by</p>
+                            <div class="tech-logos">
+                                <img src="https://api.iconify.design/simple-icons:openai.svg?color=%236366F1" alt="OpenAI" title="OpenAI" loading="lazy">
+                                <img src="https://cdn.simpleicons.org/googlecloud/4285F4" alt="Google" title="Google Gemini" loading="lazy">
+                                <img src="https://cdn.simpleicons.org/crewai/6366F1" alt="CrewAI" title="CrewAI" loading="lazy">
+                                <img src="https://api.iconify.design/logos:firebase.svg" alt="Google" title="Firebase" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="p-8">
+                        <div class="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-eye text-[#6366F1] text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-[#1E293B]">Visual Content Generation</h3>
+                        <p class="text-gray-600 mb-4">AI-generated images, videos, and graphics tailored for social media engagement.</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-[#6366F1] mr-2"></i> Custom branded visuals</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-[#6366F1] mr-2"></i> Platform-optimized formats</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-[#6366F1] mr-2"></i> A/B testing variants</li>
+                        </ul>
+                    </div>
+                    <div class="mt-auto p-8 pt-0">
+                        <div class="powered-by border-t border-gray-100 pt-4">
+                            <p class="text-sm font-medium text-[#3b5998] mb-2">Powered by</p>
+                            <div class="tech-logos">
+                                <img src="https://cdn.simpleicons.org/canva/00C4CC" alt="Canva" title="Canva" loading="lazy">
+                                <img src="https://cdn.simpleicons.org/crewai/6366F1" alt="CrewAI" title="CrewAI" loading="lazy">
+                                <img src="https://cdn.simpleicons.org/googlecloud/4285F4" alt="Google" title="Google Gemini" loading="lazy">
+                                <img src="https://api.iconify.design/logos:firebase.svg" alt="Google" title="Firebase" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="p-8">
+                        <div class="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-chart-line text-[#6366F1] text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-[#1E293B]">Performance Prediction & Optimization</h3>
+                        <p class="text-gray-600 mb-4">AI models that predict content performance and suggest improvements before posting.</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-[#6366F1] mr-2"></i> Engagement forecasting</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-[#6366F1] mr-2"></i> Hashtag recommendations</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-[#6366F1] mr-2"></i> Content scoring</li>
+                        </ul>
+                    </div>
+                    <div class="mt-auto p-8 pt-0">
+                        <div class="powered-by border-t border-gray-100 pt-4">
+                            <p class="text-sm font-medium text-[#3b5998] mb-2">Powered by</p>
+                            <div class="tech-logos">
+                                <img src="https://api.iconify.design/logos:microsoft-icon.svg" alt="Microsoft" title="Microsoft Copilot" loading="lazy">
+                                <img src="https://cdn.simpleicons.org/n8n/FF6D00" alt="n8n" title="n8n Automation" loading="lazy">
+                                <img src="https://cdn.simpleicons.org/perplexity/6366F1" alt="Perplexity" title="Perplexity AI" loading="lazy">
+                                <img src="https://cdn.simpleicons.org/google/4285F4" alt="Google" title="Google API" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="p-8">
+                        <div class="w-16 h-16 bg-indigo-50 rounded-2xl flex items-center justify-center mb-6">
+                            <i class="fas fa-cogs text-[#6366F1] text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-[#1E293B]">Influencer Matching & Campaign AI</h3>
+                        <p class="text-gray-600 mb-4">AI-powered influencer discovery and campaign management for maximum ROI.</p>
+                        <ul class="space-y-2 text-gray-600">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-[#6366F1] mr-2"></i> Audience alignment</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-[#6366F1] mr-2"></i> Fake follower detection</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-[#6366F1] mr-2"></i> Performance tracking</li>
+                        </ul>
+                    </div>
+                    <div class="mt-auto p-8 pt-0">
+                        <div class="powered-by border-t border-gray-100 pt-4">
+                            <p class="text-sm font-medium text-[#3b5998] mb-2">Powered by</p>
+                            <div class="tech-logos">
+                                <img src="https://api.iconify.design/logos:zapier-icon.svg" alt="Make.com" title="Make.com" loading="lazy">
+                                <img src="https://api.iconify.design/simple-icons:openai.svg?color=%236366F1" alt="OpenAI" title="OpenAI" loading="lazy">
+                                <img src="https://cdn.simpleicons.org/n8n/6366F1" alt="n8n" title="n8n Automation" loading="lazy">
+                                <img src="https://api.iconify.design/logos:firebase.svg" alt="Google" title="Firebase" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-20 text-center">
+                <div class="inline-flex items-center px-1 py-1 bg-indigo-100 rounded-full mb-10">
+                    <span class="px-4 py-1.5 rounded-full text-sm font-medium bg-[#6366F1] text-white">Next-Gen AI</span>
+                    <span class="px-4 py-1.5 rounded-full text-sm font-medium text-[#6366F1]">Enterprise-Ready</span>
+                    <span class="px-4 py-1.5 rounded-full text-sm font-medium text-[#6366F1]">Future-Proof</span>
+                </div>
+                <a href="#contact" class="btn-primary inline-flex items-center group">
+                    <span>Start Your AI Journey</span>
+                    <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media AI Section -->
+    <section id="social-media" class="gradient-bg py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="md:flex items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <span class="inline-block px-4 py-2 rounded-full bg-white bg-opacity-20 text-white text-sm mb-6">HOW IT WORKS</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Graphite helps you to scale your business to the next level</h2>
+                    <p class="text-gray-300 mb-6">Our proprietary AI systems transform how you manage social media, saving time while increasing engagement and conversions.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-xl bg-white bg-opacity-20 text-white">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-white">Content Creation</h4>
+                                <p class="text-gray-300">AI generates posts, captions, and responses tailored to your brand voice.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-xl bg-white bg-opacity-20 text-white">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-white">Smart Scheduling</h4>
+                                <p class="text-gray-300">AI determines optimal posting times based on audience behavior patterns.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-xl bg-white bg-opacity-20 text-white">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-white">Performance AI</h4>
+                                <p class="text-gray-300">Real-time optimization based on engagement data and predictive analytics.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10">
+                        <a href="#contact" class="btn-primary inline-flex items-center">
+                            Get Started Now
+                            <i class="fas fa-arrow-right ml-3"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2 mx-auto">
+                    <div class="bg-white p-6 rounded-2xl shadow-lg flex flex-col items-center">
+                        <div class="bg-[#1e3a8a] text-white w-full text-center py-3 px-4 rounded-t-lg mb-6">
+                            <h3 class="text-2xl font-bold">AI Social Media Command Center</h3>
+                        </div>
+                        <div class="w-full flex justify-center">
+                            <img src="socialmedia.png" alt="Social Media Dashboard" class="rounded-lg object-contain max-w-full h-auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Review Offer Section -->
+    <section id="offer" class="py-20 px-4 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden">
+                <div class="md:flex">
+                    <div class="md:w-1/2 gradient-bg p-10 text-white flex items-center">
+                        <div>
+                            <div class="relative inline-block">
+                                <h2 class="text-3xl md:text-4xl font-bold mb-4">Free Social Media <span class="animated-underline">AI Strategy</span> Review</h2>
+                                <div class="offer-badge">LIMITED TIME</div>
+                            </div>
+                            <p class="text-xl mb-6 text-indigo-100">Get a comprehensive analysis of your current social media strategy with actionable AI-powered recommendations.</p>
+                            <ul class="space-y-3 text-indigo-100">
+                                <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3"></i> <span>Content performance audit</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3"></i> <span>AI opportunity assessment</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3"></i> <span>Competitor benchmark</span></li>
+                                <li class="flex items-start"><i class="fas fa-check-circle mt-1 mr-3"></i> <span>Custom automation roadmap</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 p-10">
+                        <h3 class="text-2xl font-bold mb-6">Claim Your Free Review</h3>
+                        <form id="reviewForm">
+                            <div class="space-y-6">
+                                <div>
+                                    <label for="review-name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                    <input type="text" id="review-name" name="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                </div>
+                                <div>
+                                    <label for="review-email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                    <input type="email" id="review-email" name="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                </div>
+                                <div>
+                                    <label for="review-company" class="block text-sm font-medium text-gray-700 mb-1">Company</label>
+                                    <input type="text" id="review-company" name="company" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" required>
+                                </div>
+                                <div>
+                                    <label for="review-platforms" class="block text-sm font-medium text-gray-700 mb-1">Social Media Platforms Used</label>
+                                    <select id="review-platforms" name="platforms" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" multiple>
+                                        <option value="facebook">Facebook</option>
+                                        <option value="instagram">Instagram</option>
+                                        <option value="twitter">Twitter</option>
+                                        <option value="linkedin">LinkedIn</option>
+                                        <option value="tiktok">TikTok</option>
+                                        <option value="youtube">YouTube</option>
+                                        <option value="pinterest">Pinterest</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label for="review-account" class="block text-sm font-medium text-gray-700 mb-1">Social Media Account</label>
+                                    <input type="text" id="review-account" name="account" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="e.g., @yourusername" required>
+                                </div>
+                                <div>
+                                    <label for="review-goals" class="block text-sm font-medium text-gray-700 mb-1">Primary Social Media Goals</label>
+                                    <textarea id="review-goals" name="goals" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" placeholder="Brand awareness, lead generation, community building, etc."></textarea>
+                                </div>
+                            </div>
+                            <div class="mt-8">
+                                <button type="submit" class="w-full px-6 py-3 bg-indigo-600 text-white font-medium rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition">
+                                    Get My Free Strategy Review
+                                </button>
+                            </div>
+                        </form>
+                        <div id="reviewSuccess" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-lg">
+                            Thank you! Your free review request has been submitted. We'll contact you within 48 hours.
+                        </div>
+                        <div id="reviewError" class="hidden mt-4 p-4 bg-red-100 text-red-700 rounded-lg">
+                            There was an error submitting your request. Please try again later.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-20 px-4 bg-[#F8FAFC]">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="inline-block px-4 py-2 rounded-full bg-[#0A0F2C] text-white text-sm mb-6">TESTIMONIALS</span>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our <span class="text-[#0A0F2C]">Clients Say</span></h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">Don't just take our word for it - hear from businesses that automated their processes</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="card">
+                    <div class="flex items-center mb-6">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-xl" src="https://via.placeholder.com/150?text=Client1" alt="Client">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-medium text-[#1E293B]">Jessica Miller</h4>
+                            <p class="text-gray-600">Marketing Director, EcomBrand</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"AI-First Strategy's automation tools saved us 15 hours a week on social media management while increasing our engagement by 120%. The AI content suggestions are incredibly on-brand."</p>
+                    <div class="flex text-[#6366F1]">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="card">
+                    <div class="flex items-center mb-6">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-xl" src="https://via.placeholder.com/150?text=Client2" alt="Client">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-medium text-[#1E293B]">David Chen</h4>
+                            <p class="text-gray-600">CEO, TechStartup</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"The AI assistant alerted us to potential issues before they became problems, allowing us to respond proactively. This alone was worth the investment."</p>
+                    <div class="flex text-[#6366F1]">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="card">
+                    <div class="flex items-center mb-6">
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-xl" src="https://via.placeholder.com/150?text=Client3" alt="Client">
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-medium text-[#1E293B]">Sarah Johnson</h4>
+                            <p class="text-gray-600">CMO, RetailChain</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-6">"Our free strategy review identified three key automation opportunities we hadn't considered. Implementation drove a 300% increase in lead generation."</p>
+                    <div class="flex text-[#6366F1]">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-4 bg-white">
+        <div class="max-w-7xl mx-auto">
+            <div class="md:flex">
+                <div class="md:w-1/2 mb-10 md:mb-0 md:pr-10">
+                    <span class="inline-block px-4 py-2 rounded-full bg-[#0A0F2C] text-white text-sm mb-6">CONTACT US</span>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">Get in <span class="text-[#0A0F2C]">Touch</span></h2>
+                    <p class="text-gray-600 mb-8">Ready to automate your business with AI? Contact our team for a consultation.</p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-xl bg-[#0A0F2C] text-white">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-[#0A0F2C]">Our Office</h4>
+                                <p class="text-gray-600">Manhattan, NYC, NY 10016</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-xl bg-[#0A0F2C] text-white">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-[#0A0F2C]">Email Us</h4>
+                                <p class="text-gray-600">ettopapiashvili@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-12 w-12 rounded-xl bg-[#0A0F2C] text-white">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-[#0A0F2C]">Call Us</h4>
+                                <p class="text-gray-600">+1 (917) 442-8758</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10">
+                        <h4 class="text-lg font-medium mb-4 text-[#0A0F2C]">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="h-12 w-12 rounded-xl bg-[#0A0F2C] text-white flex items-center justify-center hover:bg-[#1a1f3d] transition">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/epapiashvili/" class="h-12 w-12 rounded-xl bg-[#0A0F2C] text-white flex items-center justify-center hover:bg-[#1a1f3d] transition">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="h-12 w-12 rounded-xl bg-[#0A0F2C] text-white flex items-center justify-center hover:bg-[#1a1f3d] transition">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="h-12 w-12 rounded-xl bg-[#0A0F2C] text-white flex items-center justify-center hover:bg-[#1a1f3d] transition">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="card">
+                        <h3 class="text-2xl font-bold mb-6">Contact Our <span class="text-[#0A0F2C]">AI Experts</span></h3>
+                        <form id="contactForm">
+                            <div class="grid grid-cols-1 gap-6">
+                                <div>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                                    <input type="text" id="name" name="name" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0A0F2C] focus:border-[#0A0F2C]" required>
+                                </div>
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                                    <input type="email" id="email" name="email" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0A0F2C] focus:border-[#0A0F2C]" required>
+                                </div>
+                                <div>
+                                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">How can we help?</label>
+                                    <textarea id="message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#0A0F2C] focus:border-[#0A0F2C]" placeholder="Tell us about your business challenges and goals"></textarea>
+                                </div>
+                            </div>
+                            <div class="mt-6">
+                                <button type="submit" class="w-full px-6 py-3 bg-[#0A0F2C] text-white font-medium rounded-lg hover:bg-[#1a1f3d] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#0A0F2C] transition">
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                        <div id="formSuccess" class="hidden mt-4 p-4 bg-green-100 text-green-700 rounded-xl">
+                            Thank you for your message! We'll get back to you within 24 hours.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="gradient-bg text-white py-16 px-4">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="inline-block px-4 py-2 rounded-full bg-white bg-opacity-20 text-white text-sm mb-6">GET STARTED</span>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your <span class="text-white">Business</span> with AI?</h2>
+            <p class="text-xl mb-8 text-gray-300">Claim your free strategy review and discover how AI can 10X your results.</p>
+            <a href="#offer" class="btn-primary">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#0A0F2C] text-gray-300 py-12 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold text-white mb-4">AI-First<span class="text-[#6366F1]"> Strategy</span></h3>
+                    <p class="mb-4 text-gray-400">AI automation and strategy for forward-thinking businesses.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-[#6366F1] transition"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.linkedin.com/in/epapiashvili/" class="text-gray-400 hover:text-[#6366F1] transition"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-[#6366F1] transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-[#6366F1] transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">AI Services</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-[#6366F1] transition">Social Media Automation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#6366F1] transition">Content Generation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#6366F1] transition">Sentiment Analysis</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#6366F1] transition">AI Chatbots</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#6366F1] transition">Influencer Matching</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Company</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-[#6366F1] transition">About Us</a></li>
+                        <li><a href="#process" class="text-gray-400 hover:text-[#6366F1] transition">Our Process</a></li>
+                        <li><a href="#offer" class="text-gray-400 hover:text-[#6366F1] transition">Free Review</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#6366F1] transition">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-[#6366F1] transition">Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold text-white mb-4">Contact</h4>
+                    <address class="not-italic text-gray-400">
+                        <p class="mb-2">Manhattan, NYC, NY 10016</p>
+                        <p class="mb-2">ettopapiashvili@gmail.com</p>
+                        <p>+1 (917) 442-8758</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400">&copy; 2024 AI-First Strategy. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-[#6366F1] transition mr-4">Privacy Policy</a>
+                    <a href="#" class="text-gray-400 hover:text-[#6366F1] transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Microsoft Copilot Studio Chatbot Widget -->
+    <div id="ms-copilot-container" style="position: fixed; right: 20px; bottom: 20px; width: 400px; height: 600px; z-index: 1000; border-radius: 16px; overflow: hidden; box-shadow: 0 15px 30px rgba(79, 70, 229, 0.3); display: none; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+        <div style="position: absolute; top: 0; left: 0; right: 0; height: 45px; background: linear-gradient(135deg, #4F46E5, #8B5CF6); display: flex; align-items: center; justify-content: space-between; padding: 0 15px; z-index: 1001;">
+            <div style="color: white; font-weight: bold;">AI Assistant</div>
+            <button id="close-copilot" style="background: rgba(255,255,255,0.2); color: white; border: none; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: all 0.3s ease;">×</button>
+        </div>
+        <iframe id="copilot-iframe" src="https://copilotstudio.microsoft.com/environments/Default-a6be5ea2-0bb1-4b8c-9def-78a267a5638b/bots/cr129_guideToNetworkPreview/webchat?__version__=2" frameborder="0" style="width: 100%; height: 100%; padding-top: 45px; box-sizing: border-box;"></iframe>
+    </div>
+    
+    <button id="open-copilot" style="position: fixed; right: 20px; bottom: 20px; background: linear-gradient(135deg, #4F46E5, #8B5CF6); color: white; border: none; width: 60px; height: 60px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4); z-index: 999; transition: all 0.3s ease; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+        <i class="fas fa-robot" style="font-size: 24px;"></i>
+    </button>
+
+</body>
+</html>
+<script>
+    // Mobile menu toggle
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('hidden');
+    });
+    
+    // Animate counters when they come into view
+    document.addEventListener('DOMContentLoaded', function() {
+        const counters = document.querySelectorAll('.counter');
+        const options = {
+            threshold: 0.5
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = parseFloat(counter.innerText);
+                    const duration = 2000; // milliseconds
+                    const steps = 50;
+                    const stepTime = duration / steps;
+                    
+                    let current = 0;
+                    const increment = target / steps;
+                    
+                    const timer = setInterval(function() {
+                        current += increment;
+                        
+                        if (current >= target) {
+                            counter.innerText = target;
+                            clearInterval(timer);
+                        } else {
+                            counter.innerText = current.toFixed(1).replace('.0', '');
+                        }
+                    }, stepTime);
+                    
+                    observer.unobserve(counter);
+                }
+            });
+        }, options);
+        
+        counters.forEach(counter => {
+            observer.observe(counter);
+        });
+
+        // Ensure error messages are hidden on page load
+        document.getElementById('reviewError').classList.add('hidden');
+        document.getElementById('reviewSuccess').classList.add('hidden');
+
+        // Form submission
+        document.getElementById('reviewForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show loading state
+            document.getElementById('reviewError').classList.add('hidden');
+            
+            const formData = {
+                name: document.getElementById('review-name').value,
+                email: document.getElementById('review-email').value,
+                company: document.getElementById('review-company').value,
+                platforms: Array.from(document.getElementById('review-platforms').selectedOptions).map(option => option.value).join(', '),
+                account: document.getElementById('review-account').value,
+                goals: document.getElementById('review-goals').value
+            };
+
+            // Template parameters should match your EmailJS template variables exactly
+            const templateParams = {
+                from_name: formData.name,
+                from_email: formData.email,
+                company: formData.company,
+                platforms: formData.platforms,
+                account: formData.account,
+                goals: formData.goals,
+                to_email: "ettopapiashvili@gmail.com"
+            };
+
+            emailjs.send("iqeaiy7", "template_6e1i2qb", templateParams)
+                .then(function(response) {
+                    console.log("SUCCESS", response);
+                    document.getElementById('reviewSuccess').classList.remove('hidden');
+                    document.getElementById('reviewError').classList.add('hidden');
+                    document.getElementById('reviewForm').reset();
+                })
+                .catch(function(error) {
+                    console.log("FAILED", error);
+                    document.getElementById('reviewError').classList.remove('hidden');
+                    document.getElementById('reviewSuccess').classList.add('hidden');
+                });
+        });
+
+        // Optional test function - uncomment to use
+        /*
+        function testForm() {
+            // Fill form fields
+            document.getElementById('review-name').value = 'Test User';
+            document.getElementById('review-email').value = 'test@example.com';
+            document.getElementById('review-company').value = 'Test Company';
+            document.getElementById('review-account').value = '@testuser';
+            document.getElementById('review-goals').value = 'Testing form submission and email functionality';
+            
+            // Select multiple platforms
+            const platforms = document.getElementById('review-platforms');
+            platforms.options[0].selected = true; // Facebook
+            platforms.options[1].selected = true; // Instagram
+            platforms.options[2].selected = true; // Twitter
+            
+            // Submit the form - uncomment to auto-submit
+            // document.getElementById('reviewForm').dispatchEvent(new Event('submit'));
+        }
+        */
+        // Don't auto-run the test function
+        // setTimeout(testForm, 2000);
+    });
+
+    // Microsoft Copilot Studio Widget Controls
+    document.getElementById('open-copilot').addEventListener('click', function() {
+        document.getElementById('ms-copilot-container').style.display = 'block';
+        this.style.display = 'none';
+        
+        // Apply font styles to chatbot iframe after it loads
+        setTimeout(function() {
+            try {
+                const iframe = document.getElementById('copilot-iframe');
+                if (iframe && iframe.contentWindow) {
+                    const style = document.createElement('style');
+                    style.textContent = `
+                        body, input, button, textarea, select, div {
+                            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+                        }
+                        button.primary {
+                            background: linear-gradient(135deg, #4F46E5, #8B5CF6) !important;
+                        }
+                    `;
+                    iframe.contentDocument.head.appendChild(style);
+                }
+            } catch(e) {
+                console.log('Could not inject styles into iframe due to cross-origin restrictions');
+            }
+        }, 1000);
+    });
+    
+    document.getElementById('close-copilot').addEventListener('click', function() {
+        document.getElementById('ms-copilot-container').style.display = 'none';
+        document.getElementById('open-copilot').style.display = 'flex';
+    });
+
+    // Add hover effect to the open button
+    document.getElementById('open-copilot').addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.05)';
+    });
+    
+    document.getElementById('open-copilot').addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+    });
+    
+    // Add hover effect to the close button
+    document.getElementById('close-copilot').addEventListener('mouseenter', function() {
+        this.style.background = 'rgba(255,255,255,0.3)';
+    });
+    
+    document.getElementById('close-copilot').addEventListener('mouseleave', function() {
+        this.style.background = 'rgba(255,255,255,0.2)';
+    });
+</script>
